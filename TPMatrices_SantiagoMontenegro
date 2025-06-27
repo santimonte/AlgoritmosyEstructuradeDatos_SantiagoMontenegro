@@ -1,0 +1,36 @@
+1)
+MATRIZ = [
+    [1,6,2],
+    [3,8,1],
+    [9,4,7]
+]
+
+def SUMA_MATRIZ(MATRIZ):
+    suma = 0
+    for fila in MATRIZ:
+        for numero in fila:
+            suma += numero
+    return suma
+
+resultado = SUMA_MATRIZ(MATRIZ)
+print("la suma de los numeros de las matrices es igual a", resultado)
+
+2)
+MATRIZ = [
+    [1,6,2],
+    [3,8,1],
+    [9,4,7]
+]
+
+def MatricesPositivas(MATRIZ):
+    contador = 0
+    for fila in MATRIZ:
+        for numero in fila:
+            if numero > 0:
+                contador += 1
+    return contador
+
+contador = MatricesPositivas(MATRIZ)
+print("Las matrices positivas son: ", contador)
+
+3)
