@@ -6,6 +6,7 @@ Curso: 4° 1°
 
 
 Ejercicios (resolver en Python y subir a repositorio compartido)
+
 Ejercicio 1:
 Escribir un método que dada una matriz de enteros devuelva la suma de los elementos que
 contiene la matriz.
