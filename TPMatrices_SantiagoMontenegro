@@ -13,7 +13,7 @@ def SUMA_MATRIZ(MATRIZ):
     return suma
 
 resultado = SUMA_MATRIZ(MATRIZ)
-print("la suma de los numeros de las matrices es igual a", resultado)
+print("La suma de los numeros de las matrices es igual a", resultado)
 
 2)
 MATRIZ = [
@@ -445,3 +445,26 @@ print("Producto:")
 mostrarMatrizita(matrizProd)
 
 18)
+matrizita = [
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0],
+]
+
+def traspuestaMatriz(matrizita):
+    filitas = len(matrizita)
+    columnitas = len(matrizita[0])
+    traspuesta = []
+    
+    for j in range(columnitas):
+        nuevaFilita = []
+        for i in range(filitas):
+            nuevaFilita.append(matrizita[i][j])
+        traspuesta.append(nuevaFilita) 
+            
+    return traspuesta
+
+resultado = traspuestaMatriz(matrizita)
+print("La matriz traspuesta es asi: ", resultado)
+
+19)
+
