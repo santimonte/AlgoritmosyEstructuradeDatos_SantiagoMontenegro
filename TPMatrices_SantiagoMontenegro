@@ -34,3 +34,165 @@ contador = MatricesPositivas(MATRIZ)
 print("Las matrices positivas son: ", contador)
 
 3)
+matrizita = [
+    [3, 7, 1, 9],
+    [4, 2, 8, 5],
+    [6, 0, 2, 3]
+]
+
+def maxColumnita(matri, filita):
+    columnitaMax = 0
+    numeMax = matri[filita][0]
+    
+    for i in range(1, len(matri[filita])):
+        if matri[filita][i] > numeMax:
+            numeMax = matri[filita][i]
+            columnitaMax = i
+            
+    return columnitaMax
+
+filita = 1
+print("La columnita del más polenta en la fila es:", maxColumnita(matrizita, filita))
+
+4)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def maxFilita(matri, columnita):
+    filitaMax = 0
+    numeMax = matri[0][columnita]
+    
+    for i in range(1, len(matri)):
+        if matri[i][columnita] > numeMax:
+            numeMax = matri[i][columnita]
+            filitaMax = i
+            
+    return filitaMax
+
+columnita = 2
+print("La fila del más polenta en la columna es:", maxFilita(matrizita, columnita))
+
+5)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def filitaMaxima(matri):
+    filitaMax = 0
+    numeMax = matri[0][0]
+    
+    for i in range(len(matri)):
+        for j in range(len(matri[i])):
+            if matri[i][j] > numeMax:
+                numeMax = matri[i][j]
+                filitaMax = i
+                
+    return filitaMax
+
+print("La fila del más polenta en toda la matriz es:", filitaMaxima(matrizita))
+
+6)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def columnitaMaxima(matri):
+    columnitaMax = 0
+    numeMax = matri[0][0]
+    
+    for i in range(len(matri)):
+        for j in range(len(matri[i])):
+            if matri[i][j] > numeMax:
+                numeMax = matri[i][j]
+                columnitaMax = j
+                
+    return columnitaMax
+
+print("La columnita del más polenta en toda la matriz es:", columnitaMaxima(matrizita))
+
+7)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def posMaxima(matri):
+    filitaMax = 0
+    columnitaMax = 0
+    numeMax = matri[0][0]
+    
+    for i in range(len(matri)):
+        for j in range(len(matri[i])):
+            if matri[i][j] > numeMax:
+                numeMax = matri[i][j]
+                filitaMax = i
+                columnitaMax = j
+                
+    return (filitaMax, columnitaMax)
+
+posi = posMaxima(matrizita)
+print(f"La posición del más polenta en la matriz es: fila {posi[0]}, columna {posi[1]}")
+
+8)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def buscarNum(matri, numero):
+    for i in range(len(matri)):
+        for j in range(len(matri[i])):
+            if matri[i][j] == numero:
+                return (i, j)
+    return None
+
+numero = 8
+posi = buscarNum(matrizita, numero)
+
+if posi:  
+    print(f"El numero {numero} está en la fila {posi[0]}, columna {posi[1]}")
+else:
+    print(f"El numero {numero} no se encuentra en la matriz")
+
+9)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def sumaFilita(matrizita, filita):
+    suma = 0
+    for nume in matrizita[filita]:
+        suma += nume
+    return suma
+
+filita = 1
+print("La suma de la filita", filita, "es igual a ", sumaFilita(matrizita, filita))
+
+10)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def sumaColumnita(matri, columnita):
+    suma = 0
+    for i in range(len(matri)):
+        suma += matri[i][columnita]
+    return suma
+
+columnita = 2
+print("La suma de la columnita", columnita, "es igual a ", sumaColumnita(matrizita, columnita))
+
+11)
