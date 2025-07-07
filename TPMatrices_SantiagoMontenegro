@@ -196,3 +196,252 @@ columnita = 2
 print("La suma de la columnita", columnita, "es igual a ", sumaColumnita(matrizita, columnita))
 
 11)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def cambiarFilitas(matrizita, f1, f2):
+    matrizita[f1], matrizita[f2] = matrizita[f2], matrizita[f1]
+    
+print("Antes:", matrizita)
+cambiarFilitas(matrizita, 0, 2)
+print("Después:", matrizita)
+
+12)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def cambiarColumnitas(matrizita, c1, c2):
+    for i in range(len(matrizita)):
+        matrizita[i][c1], matrizita[i][c2] = matrizita[i][c2], matrizita[i][c1]
+        
+print("Antes:")
+for filita in matrizita:
+    print(filita)
+
+cambiarColumnitas(matrizita, 0, 2)
+
+print("Después:")
+for filita in matrizita:
+    print(filita)
+
+13)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def rotarDerechita(matrizita):
+    filitas = len(matrizita)
+    columnitas = len(matrizita[0])
+
+    listita = []
+    for filita in range(filitas):
+        for columnita in range(columnitas):
+            listita.append(matrizita[filita][columnita])
+
+    ultimito = listita[len(listita) - 1]
+    for i in range(len(listita) - 1, 0, -1):
+        listita[i] = listita[i - 1]
+    listita[0] = ultimito
+
+    contadorcito = 0
+    for filita in range(filitas):
+        for columnita in range(columnitas):
+            matrizita[filita][columnita] = listita[contadorcito]
+            contadorcito += 1
+
+def mostrarMatrizita(matriz):
+    for filita in matriz:
+        print(filita)
+
+print("Antes de rotar:")
+mostrarMatrizita(matrizita)
+
+rotarDerechita(matrizita)
+
+print("Después de rotar:")
+mostrarMatrizita(matrizita)
+
+14)
+matrizita = [
+    [3, 7, 1, 9],   
+    [4, 2, 8, 5],  
+    [6, 0, 2, 3]   
+]
+
+def rotarIzquierdita(matrizita):
+    filitas = len(matrizita)
+    columnitas = len(matrizita[0])
+
+    listita = []
+    for filita in range(filitas):
+        for columnita in range(columnitas):
+            listita.append(matrizita[filita][columnita])
+
+    primerito = listita[0]
+    for i in range(len(listita) - 1):
+        listita[i] = listita[i + 1]
+    listita[-1] = primerito
+
+    contadorcito = 0
+    for filita in range(filitas):
+        for columnita in range(columnitas):
+            matrizita[filita][columnita] = listita[contadorcito]
+            contadorcito += 1
+
+def mostrarMatrizita(matrizita):
+    for filita in matrizita:
+        print(filita)
+
+print("Antes de rotar a la izquierda:")
+mostrarMatrizita(matrizita)
+
+rotarIzquierdita(matrizita)
+
+print("Después de rotar a la izquierda:")
+mostrarMatrizita(matrizita)
+
+15)
+matrizita1 = [
+    [1.5, 2.0, 3.3],
+    [4.1, 5.2, 6.0]
+]
+
+matrizita2 = [
+    [0.5, 1.0, 0.7],
+    [1.9, 0.8, 4.0]
+]
+
+def sumarMatrizitas(matrizita1, matrizita2):
+    filitas = len(matrizita1)
+    columnitas = len(matrizita1[0])
+    
+    matrizSumada = []
+    for i in range(filitas):
+        filitaNueva = []
+        for j in range(columnitas):
+            sumita = matrizita1[i][j] + matrizita2[i][j]
+            filitaNueva.append(sumita)
+        matrizSumada.append(filitaNueva)
+    
+    return matrizSumada
+
+matrizResultadito = sumarMatrizitas(matrizita1, matrizita2)
+
+def mostrarMatrizita(matrizita):
+    for filita in matrizita:
+        print(filita)
+
+print("Matriz 1:")
+mostrarMatrizita(matrizita1)
+
+print("Matriz 2:")
+mostrarMatrizita(matrizita2)
+
+print("Matriz Sumada:")
+mostrarMatrizita(matrizResultadito)
+
+16)
+matrizita1 = [
+    [1.5, 2.0, 3.3],
+    [2.1, 5.2, 6.0]
+]
+
+matrizita2 = [
+    [0.5, 1.0, 0.3],
+    [1.0, 0.8, 4.0]
+]
+
+def restarMatrizitas(matrizita1, matrizita2):
+    filitas = len(matrizita1)
+    columnitas = len(matrizita1[0])
+    
+    matrizRestadita = []
+    for i in range(filitas):
+        filitaNueva = []
+        for j in range(columnitas):
+            restita = matrizita1[i][j] - matrizita2[i][j]
+            filitaNueva.append(restita)
+        matrizRestadita.append(filitaNueva)
+    
+    return matrizRestadita
+
+matrizResultadito = restarMatrizitas(matrizita1, matrizita2)
+
+def mostrarMatrizita(matrizita):
+    for filita in matrizita:
+        print(filita)
+
+print("Matriz 1:")
+mostrarMatrizita(matrizita1)
+
+print("Matriz 2:")
+mostrarMatrizita(matrizita2)
+
+print("Matriz Restada:")
+mostrarMatrizita(matrizResultadito)
+
+17)
+matrizita1 = [
+    [1.0, 2.0, 3.0],
+    [4.0, 5.0, 6.0]
+]
+
+matrizita2 = [
+    [7.0, 8.0],
+    [9.0, 10.0],
+    [11.0, 12.0]
+]
+
+def productoMatrizitas(matri1, matri2):
+    filitasA = len(matri1)
+    columitasA = len(matri1[0])
+    filitasB = len(matri2)
+    columitasB = len(matri2[0])
+    
+    
+    if columitasA != filitasB:
+        print("No se pueden multiplicar")
+        return None
+    
+    
+    matrizProd = []
+    for i in range(filitasA):
+        filitaNueva = []
+        for j in range(columitasB):
+            filitaNueva.append(0.0)
+        matrizProd.append(filitaNueva)
+    
+   
+    for i in range(filitasA):
+        for j in range(columitasB):
+            suma = 0.0
+            for k in range(columitasA):
+                suma += matri1[i][k] * matri2[k][j]
+            matrizProd[i][j] = suma
+    
+    return matrizProd
+
+def mostrarMatrizita(matri):
+    for filita in matri:
+        print(filita)
+        
+print("Matriz 1:")
+mostrarMatrizita(matrizita1)
+
+print("Matriz 2:")
+mostrarMatrizita(matrizita2)
+
+matrizProd = productoMatrizitas(matrizita1, matrizita2)
+
+print("Producto:")
+mostrarMatrizita(matrizProd)
+
+18)
