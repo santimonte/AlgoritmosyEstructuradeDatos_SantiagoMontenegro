@@ -467,4 +467,3 @@ resultado = traspuestaMatriz(matrizita)
 print("La matriz traspuesta es asi: ", resultado)
 
 19)
-
