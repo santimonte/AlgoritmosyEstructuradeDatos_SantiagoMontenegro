@@ -467,3 +467,21 @@ resultado = traspuestaMatriz(matrizita)
 print("La matriz traspuesta es asi: ", resultado)
 
 19)
+matrizita = [
+    [1, 2],
+    [3, 4]
+]
+
+def invertirMatriz(matrizita):
+    invertidita = []
+
+    for i in range(len(matrizita)-1, -1, -1):
+        filitaInvertida = []
+        for j in range(len(matrizita[i])-1, -1, -1):
+            filitaInvertida.append(matrizita[i][j])
+        invertidita.append(filitaInvertida)
+
+    return invertidita
+
+resultadito = invertirMatriz(matrizita)
+print("Asi es la matriz invertida: ", resultadito)
