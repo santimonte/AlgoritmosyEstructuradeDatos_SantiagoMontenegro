@@ -1,0 +1,33 @@
+
+puntuacion1 = int(input("Ingrese la cantidad de puntos que conseguiste en la primera partida. "))
+puntuacion2 = int(input("Ingrese la cantidad de puntos que conseguiste en la segunda partida. "))
+puntuacion3 = int(input("Ingrese la cantidad de puntos que conseguiste en la tercera partida. "))
+
+puntuacionTotal = puntuacion1 + puntuacion2 + puntuacion3
+
+
+print("El primer lugar consiguio cierta cantidad de puntos:", puntuacionTotal)
+
+puntuacion4 = int(input("Ingrese la cantidad de puntos que conseguiste en la primera partida. "))
+puntuacion5 = int(input("Ingrese la cantidad de puntos que conseguiste en la segunda partida. "))
+puntuacion6 = int(input("Ingrese la cantidad de puntos que conseguiste en la tercera partida. "))
+
+puntuacionTotalSegundo = puntuacion4 + puntuacion5 + puntuacion6
+
+
+print("El segundo lugar consiguio cierta cantidad de puntos:", puntuacionTotalSegundo)
+
+puntuacion7 = int(input("Ingrese la cantidad de puntos que conseguiste en la primera partida. "))
+puntuacion8 = int(input("Ingrese la cantidad de puntos que conseguiste en la segunda partida. "))
+puntuacion9 = int(input("Ingrese la cantidad de puntos que conseguiste en la tercera partida. "))
+
+puntuacionTotalTercero = puntuacion7 + puntuacion8 + puntuacion9
+
+
+print("El tercer lugar consiguio cierta cantidad de puntos:", puntuacionTotalTercero)
+
+
+print("---RANKING---")
+print("1. Puntos totales:", puntuacionTotal)
+print("2. Puntos totales:", puntuacionTotalSegundo)
+print("4. Puntos totales:", puntuacionTotalTercero)
