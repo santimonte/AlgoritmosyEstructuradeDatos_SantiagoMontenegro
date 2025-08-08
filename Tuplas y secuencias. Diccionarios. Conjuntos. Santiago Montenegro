@@ -1,0 +1,99 @@
+estudiantes = []
+
+while True:
+    print("\n--- SISTEMA DE GESTIÓN DE ESTUDIANTES ---")
+    print("1. Registrar nuevo estudiante")
+    print("2. Mostrar todos los estudiantes")
+    print("3. Calcular promedio general")
+    print("4. Buscar estudiante por nombre")
+    print("5. Mostrar estudiantes con nota mayor al promedio")
+    print("6. Mostrar mejor y peor nota")
+    print("7. Eliminar estudiante por nombre")
+    print("8. Salir")
+
+    opcion = input("Elige una opción: ")
+
+    match opcion:
+        case "1":
+            nombre = input("Nombre del estudiante: ")
+            try:
+                edad = int(input("Edad: "))
+                nota = float(input("Nota (0-10): "))
+            except ValueError:
+                print("Edad o nota inválidas. Intenta de nuevo.")
+                continue
+
+            if edad <= 0 or nota < 0 or nota > 10:
+                print("Datos inválidos. Intenta de nuevo.")
+            else:
+                nuevo_estudiante = {
+                    "nombre": nombre,
+                    "edad": edad,
+                    "nota": nota
+                }
+                estudiantes.append(nuevo_estudiante)
+                print(f"Estudiante {nombre} registrado con éxito.")
+
+        case "2":
+            if not estudiantes:
+                print("No hay estudiantes registrados aún.")
+            else:
+                print("\nEstudiantes registrados:")
+                print("-------------------------")
+                for i, estudiante in enumerate(estudiantes, 1):
+                    print(f"{i}. Nombre: {estudiante['nombre']}")
+                    print(f"   Edad: {estudiante['edad']}")
+                    print(f"   Nota: {estudiante['nota']}")
+                    print("-------------------------")
+
+        case "3":
+            if not estudiantes:
+                print("No hay estudiantes registrados.")
+            else:
+                suma_notas = sum(e["nota"] for e in estudiantes)
+                promedio = suma_notas / len(estudiantes)
+                print(f"El promedio general de notas es: {promedio:.2f}")
+
+        case "4":
+            buscarNombre = input("Nombre del estudiante que deseas buscar:  ").lower()
+            nombreEncontrado = [e for e in estudiantes if e["nombre"].lower() == buscarNombre]
+            if nombreEncontrado:
+                for e in nombreEncontrado:
+                    print(f"Nombre: {e['nombre']} | Edad: {e['edad']} | Nota: {e['nota']}")
+            else:
+                print("Estudiante no encontrado.")
+
+        case "5":
+            if not estudiantes:
+                print("No hay estudiantes registrados.")
+            else:
+                promedio = sum(e["nota"] for e in estudiantes) / len(estudiantes)
+                print(f"Promedio general: {promedio:.2f}")
+                superiores = [e for e in estudiantes if e["nota"] > promedio]
+                if superiores:
+                    print("Estudiantes con nota mayor al promedio:")
+                    for e in superiores:
+                        print(f"Nombre: {e['nombre']} | Nota: {e['nota']}")
+                else:
+                    print("Ningún estudiante tiene nota mayor al promedio.")
+
+        case "6":
+            if not estudiantes:
+                print("No hay estudiantes registrados.")
+            else:
+                mejor = max(estudiantes, key=lambda e: e["nota"])
+                peor = min(estudiantes, key=lambda e: e["nota"])
+                print(f"Mejor nota: {mejor['nota']} | Estudiante: {mejor['nombre']}")
+                print(f"Peor nota: {peor['nota']} | Estudiante: {peor['nombre']}")
+
+        case "7":
+            eliminarNombre = input("Nombre del estudiante a eliminar: ").lower()
+            encontrados = [e for e in estudiantes if e["nombre"].lower() == eliminarNombre]
+            if encontrados:
+                for e in encontrados:
+                    estudiantes.remove(e)
+                print(f"Estudiante(s) con nombre '{eliminarNombre}' eliminado(s).")
+            else:
+                print("Estudiante no encontrado.")
+
+        case "8":
