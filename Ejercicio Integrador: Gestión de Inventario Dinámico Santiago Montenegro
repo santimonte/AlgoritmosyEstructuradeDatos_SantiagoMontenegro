@@ -1,0 +1,57 @@
+import random
+
+
+deposito = {
+    'computadoras': [('laptop', 10), ('pc gamer', 5), ('notebook', 7)],
+    'accesorios': [('mouse', 15), ('teclado', 12), ('auriculares', 8)],
+    'periféricos': [('impresora', 4), ('monitor', 6), ('scanner', 3)]
+}
+
+print("Deposito inicial")
+for seccion, items in deposito.items():
+    print(f"{seccion}: {items}")
+print("-" * 40)
+
+print("Simulador de ventas")
+for venta in range(3):  
+    
+    seccion = random.choice(list(deposito.keys()))
+    
+   
+    if not deposito[seccion]:
+        print(f"No hay cosas disponibles de esta seccion '{seccion}'")
+        continue
+    
+    
+    indiceItem = random.randrange(len(deposito[seccion]))
+    articulo, unidades = deposito[seccion][indiceItem]
+
+    print(f"Venta {venta+1}: {articulo} de la seccion '{seccion}'")
+
+    if unidades > 1:
+        
+        deposito[seccion][indiceItem] = (articulo, unidades - 1)
+    else:
+        
+        deposito[seccion].pop(indiceItem)
+
+print("-" * 40)
+
+
+print("Reposicion de los articulos")
+
+seccionReposicion = random.choice(list(deposito.keys()))
+articuloNuevo = ('webcam', 7)
+
+deposito[seccionReposicion].append(articuloNuevo)
+print(f"Se agrego el artículo '{articuloNuevo[0]}' (stock: {articuloNuevo[1]}) "
+      f"a la seccion '{seccionReposicion}'.")
+print("-" * 40)
+
+
+print("Deposito actualizado")
+for seccion, items in deposito.items():
+    if items:
+        print(f"{seccion}: {items}")
+    else:
+        print(f"{seccion}: Sin articulos en este momento")
