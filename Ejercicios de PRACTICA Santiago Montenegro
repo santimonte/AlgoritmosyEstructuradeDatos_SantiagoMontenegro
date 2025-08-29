@@ -1,0 +1,99 @@
+ 
+1-
+dias = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+
+print("El tercer día es:", dias[2])
+
+dia1, dia2, dia3 = dias[:3]
+print("Primer día:", dia1)
+print("Segundo día:", dia2)
+print("Tercer día:", dia3)
+
+2-
+persona = {
+    "nombre": "Santiago",
+    "edad": 20,
+    "profesión": "Programador"
+}
+
+persona["edad"] = 21
+
+persona["ciudad"] = "Buenos Aires"
+
+del persona["profesión"]
+
+print(persona)
+
+3-
+curso1 = {"Juan", "Ana", "Pedro", "Lucía"}
+curso2 = {"Pedro", "María", "Lucía", "Sofía"}
+
+print("En ambos cursos:", curso1 & curso2)
+
+print("Solo en curso1:", curso1 - curso2)
+
+print("Unión de cursos:", curso1 | curso2)
+
+1- Tuplas:
+def filtrar_pares(numeros):
+    pares = []
+    for num in numeros:
+        if num % 2 == 0:
+            pares.append(num)
+   )
+
+numeros = (1, 2, 3, 4, 5, 6)
+pares = filtrar_pares(numeros)
+print("Números pares:", pares)
+
+
+2- Diccionarios:
+productos = {
+    "Teclado": 80,
+    "Mouse": 50,
+    "Monitor": 150,
+    "Silla gamer": 300,
+    "Auriculares": 120
+}
+
+print("Productos con precio > 100:")
+for producto, precio in productos.items():
+    if precio > 100:
+        print(f"{producto}: ${precio}")
+
+3- Conjuntos:
+numeros = {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+pares = set()  
+for n in numeros:
+    if n % 2 == 0:
+        pares.add(n)
+
+print("Solo números pares:", pares)
+
+
+4- Combinado
+nombres = ("Juan", "Ana", "Pedro")
+edades = [20, 22, 19]
+
+personas = {}
+for i in range(len(nombres)):
+    personas[nombres[i]] = edades[i]
+
+print(personas)
+
+
+5- Combinado 2:
+estudiantes = {
+    "Juan": {"Matemáticas", "Física"},
+    "Ana": {"Química", "Matemáticas"},
+    "Pedro": {"Historia"},
+    "Lucía": {"Matemáticas", "Biología"}
+}
+
+en_matematicas = []
+for nombre in estudiantes:
+    if "Matemáticas" in estudiantes[nombre]:
+        en_matematicas.append(nombre)
+
+print("Estudiantes en Matemáticas:", en_matematicas)
