@@ -97,3 +97,8 @@ while True:
                 print("Estudiante no encontrado.")
 
         case "8":
+            print("Saliendo del programa...")
+            break
+
+        case _:
+            print("Opción no válida. Intenta otra vez.")
