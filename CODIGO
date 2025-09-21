@@ -1,0 +1,95 @@
+productos = [
+    {"id": 1, "nombre": "Camiseta River Plate", "precio": 1000.0, "stock": 9},
+    {"id": 2, "nombre": "Camiseta Bosta Juniors", "precio": 912.0, "stock": 12},
+    {"id": 3, "nombre": "Camiseta San Jijenzo", "precio": 800.0, "stock": 18},
+]
+
+carrito = []
+
+def mostrar_productos():
+    print("\n TIENDA DE CAMISETAS ")
+    for p in productos:
+        print(f"{p['id']}. {p['nombre']} - ${p['precio']} (Stock: {p['stock']})")
+    print("0. Finalizar compra")
+
+def agregar_al_carrito():
+    while True:
+        mostrar_productos()
+        opcion = input("Elige el número del producto que deseas comprar (0 sino queres comprar): ")
+        
+        try:
+            opcion = int(opcion)
+        except ValueError:
+            print("Por favor, elegi una opcion correcta.")
+            continue
+
+        if opcion == 0:
+            break
+        
+        producto = next((p for p in productos if p["id"] == opcion), None)
+        
+        if producto:
+            cantidad = input(f"¿Cuantas '{producto['nombre']}' quieres comprar?: ")
+            
+            try:
+                cantidad = int(cantidad)
+            except ValueError:
+                print("Tenes que ingresar un número valido")
+                continue
+            
+            if cantidad <= 0:
+                print("La cantidad debe ser mayor a 0")
+            elif cantidad > producto["stock"]:
+                print("No hay suficiente stock")
+            else:
+                carrito.append({"producto": producto, "cantidad": cantidad})
+                print(f"{cantidad} x {producto['nombre']} agregado al carrito")
+        else:
+            print("Producto no valido")
+
+def mostrar_carrito():
+    if not carrito:
+        print("\nTu carrito esta vacio")
+        return 0
+    
+    print("\n CARRITO ")
+    total = 0
+    for item in carrito:
+        subtotal = item["cantidad"] * item["producto"]["precio"]
+        total += subtotal
+        print(f"{item['cantidad']} x {item['producto']['nombre']} = ${subtotal}")
+    print(f"TOTAL: ${total}")
+    return total
+
+def finalizar_compra():
+    total = mostrar_carrito()
+    if total > 0:
+        confirmar = input("¿Queres pagar y terminar la compra? (si/no): ").lower()
+        if confirmar == "si":
+            while True:
+                metodo_pago = input("Elegí método de pago (1 = Mercado Pago, 2 = Efectivo): ")
+                if metodo_pago == "1":
+                    print("Pagaste con Mercado Pago, ¡gracias por la compra!")
+                    break
+                elif metodo_pago == "2":
+                    print("Pagaste en efectivo ¡gracias por la compra!")
+                    break
+                else:
+                    print("Metodo de pago no valido. Proba devuelta.")
+            
+            for item in carrito:
+                item["producto"]["stock"] -= item["cantidad"]
+            carrito.clear()
+            print("¡Compra hecha!")
+        else:
+            print("Compra cancelada")
+
+
+while True:
+    agregar_al_carrito()
+    finalizar_compra()
+    
+    continuar = input("\n¿Vas a hacer otra compra? (si/no): ").lower()
+    if continuar != "si":
+        print("Volve pronto wacho")
+        break
