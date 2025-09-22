@@ -8,4 +8,4 @@ El proyecto debe ser en Python y deberá integrar los temas vistos en las últim
 Una vez finalizado, subir a un repositorio en Github con los integrantes del grupo.
 Deberán especificar el tipo de proyecto y su descripción deberá incluirse en un archivo readme.md
 
-INTEGRANTES: SANTIAGO MONTENEGRO - LEONEL TELLO - IAN VECCHIO - SEBASTIAN QUINTERO
+INTEGRANTE: SANTIAGO MONTENEGRO 
