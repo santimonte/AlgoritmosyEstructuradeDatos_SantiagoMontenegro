@@ -82,6 +82,12 @@ else:
 print(f"Coeficiente de correlación Puntuación vs. Tiempo: {correlacion:.2f}")
 print(f"Interpretación: La correlación es **{interpretacion}**")
 
+respuestas_promedio = df[[' ', 'Incorrect', 'Unattempted']].mean()
+
+print("\n--- Promedio de Tipos de Respuestas por Participante ---")
+print(f"Respuestas Correctas promedio: {respuestas_promedio['Correct']:.2f}")
+print(f"Respuestas Incorrectas promedio: {respuestas_promedio['Incorrect']:.2f}")
+print(f"Preguntas No Intentadas promedio: {respuestas_promedio['Unattempted']:.2f}")
 
 # ------------ TP 17 DE OCTUBRE ---------------
 
@@ -104,4 +110,5 @@ print(df[['First Name', 'Puntuacion', 'Clasificación']].head())
 
 conteo = df['Clasificación'].value_counts()
 print("\nCantidad de alumnos por categoría:")
+
 print(conteo)
